@@ -16,7 +16,8 @@ Most notable applications are remote login and command-line execution.
      - `$ ssh bandit0@bandit.labs.overthewire.org -p 2220`
   3. It MIGHT ask if you'd like to continue connecting. Type 'Yes' or 'y', then press enter.
   4. Put the password (it's given to you already).
- 
+
+ 🌱TIP: To copy & paste in cygwin, just highlight the text and then right click where it asks for the password. (You won't be able to see the password, it will be invisible).
 
 ### Level 0 -> Level 1
 Level goal: Find password for the next level. (Stored in a file called readme)
@@ -76,7 +77,7 @@ Level goal: Password is stored in a hidden file in the `inhere` directory.
 
 1. `$ ls` - will list/show the inhere directory.
 2. `$ cd inhere` - switching to the inhere directory.
-   - The `ls` command won't be useful in this directory. Use the `find` command to list out the hidden files in the inhere directory.
+   - 🌱 The `ls` command won't be useful in this directory. Use the `find` command to list out the hidden files in the inhere directory.
    - Use the `cat` command to look into the hidden files, and you should find level 4's password in one of them.
 
 
@@ -103,10 +104,11 @@ Examples:
 </p>
 </details>
 
-1. Use `ls` command
-2. Then use `file inhere/*` command to list all files in directory.
+1. Use `ls` command.
+   - 🌱 I thought about using `cd inhere` to enter the directory, then used `find` to look at the files, but it didn't help. Used `cd -` to back out of current directory. 
+3. Use `file inhere/*` command to list all files in directory.
    - you'll see one file that is human-readable (bcuz of ASCII).
-3. Use `cat` command to look into file and get password.
+4. Use `cat` command to look into file and get password.
      - `$ cat inhere/-file07`
 
 
