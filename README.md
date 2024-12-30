@@ -113,6 +113,46 @@ Examples:
 
 
 ### Level 5 -> Level 6
+Level goal: The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+* human-readable
+* 1033 bytes in size
+* not executable
 
+1. SO, I decided to try googling how to find files that are a certain number of bytes. I found using `find -size [...]` would allow me to find the correct file(s) with that specific size in bytes.
+   - `find -size 1033c`
+      <details><summary>✨ Why did I use '1033c' and not just '1033'? Check the `man` page ✨</summary>
+      <p>
+        
+                 -size n[cwbkMG]
+        
+                        File uses n units of space, rounding up.  The following suffixes can be used:
+        
+                        `b`    for 512-byte blocks (this is the default if no suffix is used)
+     
+                        `c`    for bytes
+     
+                        `w`    for two-byte words
+     
+                        `k`    for Kilobytes (units of 1024 bytes)
+     
+                        `M`    for Megabytes (units of 1048576 bytes)
+     
+                        `G`    for Gigabytes (units of 1073741824 bytes) 
+      </p>
+      </details>
+2. To check if it was not executable I used `! -executable` command.
+   - `$ find -size 1033c ! -executable`.
+3. By this time, i firgured this file was the correct one, and I was having a hard time finding the right command to check if it was human-readable. I ended up just using `ls -l` and then `file` command to look at the file to check if it was both human-readable and executable.
+   
+            bandit5@bandit:~$ ls -l ./inhere/maybehere07/.file2
+            -rw-r----- 1 root bandit5 1033 May  7 20:15 ./inhere/maybehere07/.file2           
+            bandit5@bandit:~$           
+            bandit5@bandit:~$ file ./inhere/maybehere07/.file2           
+            ./inhere/maybehere07/.file2: ASCII text, with very long lines           
+            bandit5@bandit:~$ 
 
+    * human-readable (ASCII text)
+    * 1033 bytes in size (Also in `ls -l` output)
+    * not executable (`-rw-r-----`)
+5. I then just used `cat` to look into that file and it gave me the password.
 
