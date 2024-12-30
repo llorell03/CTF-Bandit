@@ -156,3 +156,23 @@ Level goal: The password for the next level is stored in a file somewhere under 
     * not executable (`-rw-r-----`)
 5. I then just used `cat` to look into that file and it gave me the password.
 
+
+### Level 6 -> Level 7
+Level goal: The password for the next level is stored somewhere on the server and has all of the following properties:
+
+ * owned by user bandit7
+ * owned by group bandit6
+ * 33 bytes in size
+
+1. In the previous level, I learned that the `find` command can be used to find files on the server. Using the `man` page (and using ctrl + f), I saw it offers flags to look for files owned by a specific user (`-user <username>`) and a specific group (`group <groupname>`).
+    * -type f,  because we are looking for a file
+    * -user bandit7, to find files owned by the ‘bandit7’ user
+    * -group bandit6, to find files owned by the ‘bandit6’ group
+    * -size 33c, to find files of size 33 bytes
+
+ `$ find / -type f -user bandit7 -group bandit6 -size 33c`
+
+    
+2. We would need to run the command from the root directory to search the whole system. However, running this command will print out the `Permission denied` error. I google searched 'How to get rid of all "permission denied" messages in "find"?', I found using `2>/dev/null` fixes that problem.
+   - `$ find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null`
+4. Once I used that command, it revealed the file and I just used the `cat` command to show the password.
