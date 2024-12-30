@@ -2,7 +2,7 @@
 Writeup of how I solved each level of OverTheWire's Wargame: Bandit. 
 
 # Objective 👾
-This wargame is meant to teach more technical and practical skills. You learn how to authenticate over a network through SSH, and gain familiarity with the CMD Line. This game is meant for absolute beginners, and it has greatly helped me in getting more comfortable with a terminal, as well as given the added benefit of allowing me to very briefly come up with my own methodologies.
+This wargame is meant to teach more technical and practical skills. You learn how to authenticate over a network through SSH, and gain familiarity with the CMD Line. This CTF game is meant for absolute beginners, and it has greatly helped me in getting more comfortable with a terminal, as well as given the added benefit of allowing me to very briefly come up with my own methodologies.
 
 ### Level 0
 Level Goal: Log into the game using SSH (A remote login client)
