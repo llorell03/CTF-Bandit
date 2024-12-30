@@ -14,7 +14,7 @@ Most notable applications are remote login and command-line execution.
   1. Download Cygwin (Use wikihow)
   2. Use ssh to log into Bandit (Used Linux manual page for help)
      - `$ ssh bandit0@bandit.labs.overthewire.org -p 2220`
-  3. It will ask if you'd like to continue connecting. Type 'Yes' or 'y', then press yes.
+  3. It MIGHT ask if you'd like to continue connecting. Type 'Yes' or 'y', then press enter.
   4. Put the password (it's given to you already).
  
 
